@@ -1,0 +1,23 @@
+services:
+    testsuite:
+        container_name: ws_autobahn_testuite
+        image: crossbario/autobahn-testsuite
+        # build:
+        #     context: .
+        #     args:
+        #     - BUILD_DATE=""
+        #     - AUTOBAHN_TESTSUITE_VERSION=0.8.2
+        #     - AUTOBAHN_TESTSUITE_VCS_REF=b79698f
+        volumes:
+            - ./config:/config
+            - ./reports:/reports
+        network_mode: host
+        command:
+            [
+                "wstest",
+                "--mode",
+                "fuzzingclient",
+                "--spec",
+                "/config/fuzzingclient.json",
+                "-d"
+            ]
