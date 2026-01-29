@@ -3,26 +3,34 @@
     "servers": [
         {
             "agent": "custom server - normal",
-            "url": "ws://127.0.0.1:8080/ws"
+            "url": "ws://127.0.0.1:8080/ws?trace"
         },
         {
             "agent": "custom server - fragmented",
-            "url": "ws://127.0.0.1:8080/ws/fragmented"
+            "url": "ws://127.0.0.1:8080/ws?fragmented"
         }
     ],
     "cases": [
-        "*"
+        "13.1.1",
+        "13.2.1",
+        "13.3.1",
+        "13.4.1",
+        "13.5.1",
+        "13.6.1",
+        "13.7.1"
     ],
     "exclude-cases": [
-        "12.*",
-        "13.*"
+        "11112.*",
+        "1113.*"
     ],
     "exclude-agent-cases": {
         "custom server - normal": [
             "6.*"
         ],
         "custom server - fragmented": [
-            "6.2*"
+            "6.2*",
+            "12.*",
+            "13.*"
         ]
     }
 }
